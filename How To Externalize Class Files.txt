@@ -1,0 +1,32 @@
+# Pre-Note
+
+> This is detailed by inductive support. [here](https://support.inductiveautomation.com/hc/en-us/articles/360047136012-Importing-and-using-3rd-party-Python-libraries-in-Ignition) 
+
+# Steps
+> Given the following code stored in a file called "sample.py": 
+```
+class SampleClass:
+	val = 0	
+	def callSample(self):
+		return "sample"	
+	#Used for Class Initiation
+	def __init__(self):
+		self.val = 0
+
+```
+>> Save file here: "C:\Program Files\Inductive Automation\Ignition\user-lib\pylib"
+
+> How to call the file: 
+>> Access your script under your designated object
+>> Copy and paste the following script:
+```
+import sample # This is your filename. 
+ret = sample.SampleClass() # The host class
+text = ret.callSample() # The sub function
+system.gui.messageBox(text) #Returning "sample" 
+```
+
+# Notes
+
+> Everything in the user-lib folder will be distributed to each user underneath the Ignition cache folder, usually zipped. 
+>> Samples of that will be here: C:\Users\USERNAME\.ignition\cache\resources\pylib
